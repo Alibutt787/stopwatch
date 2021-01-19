@@ -1,123 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stop Watch</title>
-  </head>
 
-  <body
-    style="
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stop Watch</title>
+</head>
+
+<body style="
       background-color: #ffa600;
       color: aliceblue;
       text-align: center;
       font-size: 50px;
-    "
-  >
-    <h3 style="color: black">Ali Stop Watch</h3>
-    <p>
-      <b>
-        <span style="font-size: 70px" id="mint">00 </span>
-        :
-        <span style="font-size: 60px" id="second">00 </span>
-        :
-        <span id="microsecond">00 </span>
-        <br />
-        <span style="font-size: 35px">Mint </span>
-        &nbsp; &nbsp;
-        <span style="font-size: 25px">Sec </span>
-        &nbsp; &nbsp;
-        <span style="font-size: 20px"> ms</span>
-      </b>
-    </p>
+    ">
+  <h3 style="color: black">Ali Stop Watch</h3>
+  <p>
+    <b>
+      <span style="font-size: 70px" id="mint">00 </span>
+      :
+      <span style="font-size: 60px" id="second">00 </span>
+      :
+      <span id="microsecond">00 </span>
+      <br />
+      <span style="font-size: 35px">Mint </span>
+      &nbsp; &nbsp;
+      <span style="font-size: 25px">Sec </span>
+      &nbsp; &nbsp;
+      <span style="font-size: 20px"> ms</span>
+    </b>
+  </p>
 
-    <button
-      id="start"
-      style="
+  <button id="start" style="
         background-color: #ffa600;
         font-size: 30px;
         color: white;
         border-radius: 8px;
         padding: 10px;
-      "
-    >
-      Start
-    </button>
-    <button
-      id="stop"
-      style="
+      ">
+    Start
+  </button>
+  <button id="stop" style="
         background-color: #ffa600;
         font-size: 30px;
         color: white;
         border-radius: 8px;
         padding: 10px;
-      "
-    >
-      Stop
-    </button>
-    <button
-      id="reset"
-      style="
+      ">
+    Stop
+  </button>
+  <button id="reset" style="
         background-color: #ffa600;
         font-size: 30px;
         color: white;
         border-radius: 8px;
         padding: 10px;
-      "
-    >
-      Reset
-    </button>
-  </body>
+      ">
+    Reset
+  </button>
+</body>
 
-  <script>
-    window.onload = function () {
-      var start = document.getElementById("start");
-      var stop = document.getElementById("stop");
-      var reset = document.getElementById("reset");
-      var mint = document.getElementById("mint");
-      var second = document.getElementById("second");
-      var microsecond = document.getElementById("microsecond");
+<script>
+  window.onload = function () {
+    var start = document.getElementById("start");
+    var stop = document.getElementById("stop");
+    var reset = document.getElementById("reset");
+    var mint = document.getElementById("mint");
+    var second = document.getElementById("second");
+    var microsecond = document.getElementById("microsecond");
 
-      var sec = 0;
-      var micsec = 0;
-      var hoursec = 0;
-      var ho = 0;
-      var hy = 0;
-      var gy;
-      start.onclick = function start_watch() {
-        clearInterval(gy);
-        gy = setInterval(myfun, 10);
-      };
-      stop.onclick = function start_watch() {
-        clearInterval(gy);
-      };
-      reset.onclick = function start_watch() {
-        clearInterval(gy);
-        sec = "00";
-        misec = "00";
-        second.innerHTML = sec;
-        microsecond.innerHTML = misec;
-      };
-
-      function myfun() {
-        hy++;
-        microsecond.innerHTML = hy;
-
-        if (hy > 99) {
-          sec++;
-          micsec = second.innerHTML = "0" + sec;
-          if (micsec > 9) {
-            hoursec = second.innerHTML = sec;
-          }
-          if (sec > 60) {
-            ho++;
-            mint.innerHTML = "0" + ho;
-            if(mint>9){   mint.innerHTML = ho;}
-            sec = 0;
-          }
-          hy = 0;
-        }
-      }
+    var sec = 0;
+    var micsec = 0;
+    var hoursec = 0;
+    var ho = 0;
+    var hy = 0;
+    var gy;
+    start.onclick = function start_watch() {
+      clearInterval(gy);
+      gy = setInterval(myfun, 10);
     };
-  </script>
+    stop.onclick = function start_watch() {
+      clearInterval(gy);
+    };
+    reset.onclick = function start_watch() {
+      clearInterval(gy);
+      sec = "00";
+      misec = "00";
+      second.innerHTML = sec;
+      microsecond.innerHTML = misec;
+    };
+
+    function myfun() {
+      hy++;
+      microsecond.innerHTML = hy;
+
+      if (hy > 99) {
+        sec++;
+        micsec = second.innerHTML = "0" + sec;
+        if (micsec > 9) {
+          hoursec = second.innerHTML = sec;
+        }
+        if (sec > 60) {
+          ho++;
+          mint.innerHTML = "0" + ho;
+          if (mint > 9) {
+            mint.innerHTML = ho;
+          }
+          sec = 0;
+        }
+        hy = 0;
+      }
+    }
+  };
+</script>
+
 </html>
