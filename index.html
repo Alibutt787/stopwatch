@@ -71,6 +71,7 @@
     var sec = 0;
     var micsec = 0;
     var hoursec = 0;
+    var pak =0;
     var ho = 0;
     var hy = 0;
     var gy;
@@ -85,8 +86,10 @@
       clearInterval(gy);
       sec = "00";
       misec = "00";
+      pak="00";
       second.innerHTML = sec;
       microsecond.innerHTML = misec;
+      mint.innerHTML=pak;
     };
 
     function myfun() {
@@ -101,8 +104,8 @@
         }
         if (sec > 60) {
           ho++;
-          mint.innerHTML = "0" + ho;
-          if (mint > 9) {
+         pak= mint.innerHTML = "0" + ho;
+          if (pak > 9) {
             mint.innerHTML = ho;
           }
           sec = 0;
